@@ -5,6 +5,8 @@ from sklearn.metrics import classification_report
 import pandas as pd
 from sklearn.model_selection import GroupShuffleSplit
 
+import joblib
+
 class ModelTrainer:
     def __init__(self):
         self.model = xgb.XGBClassifier()
@@ -32,4 +34,5 @@ if __name__ == "__main__":
     trained_model = trainer.train_model()
     print("Model trained successfully.")
     # save the model if needed
-    # joblib.dump(trained_model, 'model.pkl')
+    joblib.dump(trained_model, 'models/model.joblib')
+    print("Model saved to models/model.joblib")
